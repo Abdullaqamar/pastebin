@@ -141,6 +141,12 @@ def get_ultrasound_data(port="/dev/ttyS0", timeout_seconds=None):
                 }
                 print(payload)
                 return payload
+    except PermissionError:
+        print(
+            f"Permission denied opening {port}. Add this user to the dialout group "
+            "or run with sudo for a quick test."
+        )
+        return None
     except Exception as error:
         print(f"Error in UART communication: {error}")
         return None
