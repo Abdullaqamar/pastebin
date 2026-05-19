@@ -33,6 +33,7 @@ def ultrasound_loop():
             print(f"Updated ultrasound depth: {latest_depth} mm")
         else:
             print("Ultrasound still waiting for a valid reading")
+            time.sleep(5)
 
 
 def get_latest_depth():
